@@ -53,15 +53,35 @@ function palindrome(parola){
 * se è pari genero un messaggio, altrimenti un altro 
  */
 
-const numUSer = parseInt(prompt('inserisci un numero da 1 a 5'));
+
 
 const numPc = randomizer(1, 5);
-
+let numUSer = parseInt(prompt('inserisci un numero da 1 a 5'));
 const pariDispari = prompt('scegli "pari" o "dispari"');
 
+let messaggio2 = document.getElementById('messaggio2')
 const sommaUserPc = numPc + numUSer;
 console.log('numero random ' + numPc)
 pariCheck(sommaUserPc);
+
+  if(pariDispari !== 'pari' && pariDispari !== 'dispari'){
+    alert('no no no, devi inserire ESATTAMENTE "pari" o "dispari"')
+  }else if(isNaN(numUSer)){
+    alert('Cosi no eh, ho chiesto un NUMERO')
+  }else if(numUSer < 1 || numUSer > 5){
+    alert('non so cosa non sia chiaro, TRA 1 E 5...')
+  }else if( (!((numPc + numUSer) % 2) && pariDispari === 'pari')){
+      messaggio2.innerHTML = 'FORTUNELLO, hai VINTO!'
+    }else if((numPc + numUSer) % 2 && pariDispari === 'dispari'){
+      messaggio2.innerHTML = 'FORTUNELLO, hai VINTO!'
+    }else{
+      messaggio2.innerHTML = 'AHIA, hai PERSO!'
+    }
+  
+  
+
+
+
 
 
 /**
@@ -80,7 +100,7 @@ function randomizer(min, max){
  */
 function pariCheck(pari){
   if (!(pari % 2)){
-    console.log('NUMERO PARI')
+    messaggio2 = ''
   }else{
     console.log('NUMERO DISPARI')
   };
