@@ -25,3 +25,7 @@ Dichiariamo chi ha vinto.
 
 ##### Mio svolgimento esercizio 2:
 
+* chiedo all'utente di scegliere pari o dispari e di inserire un numero da 1 a 5.
+* genero un numero random da 1 a 5.
+* verifico se la somma dei due numeri è pari
+* se è pari genero un messaggio, altrimenti un altro

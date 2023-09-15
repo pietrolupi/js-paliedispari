@@ -10,10 +10,19 @@
  */
 
 
-const parolaIns = prompt('inserisci una parola');
-let firstHalfArray = []
+
+const palBtn = document.getElementById('pal-btn');
+let parolaIns;
+let firstHalfArray = [];
 let messaggio = document.getElementById('messaggio');
 let flag = false;
+
+
+palBtn.addEventListener('click', function(){
+  parolaIns = prompt('inserisci una parola');
+  palindrome(parolaIns)
+});
+
 function palindrome(parola){
 
   let letterArray = parola.split('');
@@ -31,14 +40,48 @@ function palindrome(parola){
   }else{
     messaggio.innerHTML = 'OH NO, non è un palindromo :('
   };
-
-  console.log(firstHalfArray)
-  console.log(letterArray.reverse())
-  console.log(flag);
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-palindrome(parolaIns);
+//ESERCIZIO: PARI O DISPARI
+
+/*
+* chiedo all'utente di scegliere pari o dispari e di inserire un numero da 1 a 5.
+* genero un numero random da 1 a 5 (con una funzione).
+* verifico se la somma dei due numeri è pari (con funzione).
+* se è pari genero un messaggio, altrimenti un altro 
+ */
+
+const numUSer = parseInt(prompt('inserisci un numero da 1 a 5'));
+
+const numPc = randomizer(1, 5);
+
+const pariDispari = prompt('scegli "pari" o "dispari"');
+
+const sommaUserPc = numPc + numUSer;
+console.log('numero random ' + numPc)
+pariCheck(sommaUserPc);
 
 
-console.log(letterArray)
+/**
+ * genera numero random da 1 a 5
+ * @param {number} min 
+ * @param {*number} max 
+ * @returns number
+ */
+function randomizer(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+/**
+ * controlla se un numero è pari o dispari
+ * @param {number} pari 
+ */
+function pariCheck(pari){
+  if (!(pari % 2)){
+    console.log('NUMERO PARI')
+  }else{
+    console.log('NUMERO DISPARI')
+  };
+}
