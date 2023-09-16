@@ -3,14 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <!-- /bootstrap -->
   <title>Document</title>
 </head>
-<body>
-  <button id="pal-btn">VEDIAMO SE RIESCI A INSERIRE UN PALINDROMO</button>
-  <h1 id="messaggio"></h1>
+<body class="bg-dark  ">
+  <div class="main-wrapper">
+    <div class="container pt-5 m-auto  "></div>
+      <div class="row">
+        <div class="col-6">
+          <div class="card  w-75 m-auto  " style="width: 18rem;">
+            <img class="card-img-top" src="palindromi-quadrato-sator.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title">Vediamo se conosci qualche palindromo!</h3>
+              <p class="card-text">Il palindromo è una sequenza di lettere o di sillabe che possa essere letta anche in senso retrogrado dando come esito la sequenza di partenza.</p>
+              <a href="#" id="pal-btn" class="btn btn-primary">Prova subito!</a>
+              <h1 id="messaggio"></h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card w-75 m-auto  " style="width: 18rem;">
+            <img class="card-img-top" src="hands1.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title">Prova a vincere a pari o dispari contro il pc!</h3>
+              <p class="card-text">Scegli un numero da 1 a 5, scegli se giocare "pari" o "dispari" e controlla se hai vinto!</p>
+              <a href="#" id="pardis-btn" class="btn btn-primary">Prova subito!</a>
+              <h1 id="messaggio2"></h1>
+              <h3 id="stamp-user"></h3>
+              <h3 id="stamp-pc"></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+  
 
-  <button id="pardis-btn">GIOCA A PARI O DISPARI CONTRO IL PC </button>
-  <h1 id="messaggio2"></h1>
+   
+
+  </div>
+
+
+
+ 
  
   <script src="script.js"></script>
 </body>

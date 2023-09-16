@@ -56,10 +56,12 @@ function palindrome(parola){
 
 let numUser;
 let sommaUserPc;
+const stampNumUser = document.getElementById('stamp-user')
+const stampPc = document.getElementById('stamp-pc')
 const pariDisBtn = document.getElementById('pardis-btn');
-let messaggio2 = document.getElementById('messaggio2')
+const messaggio2 = document.getElementById('messaggio2')
 
-pariDisBtn.addEventListener('click', function(){
+/* pariDisBtn.addEventListener('click', function(){
   messaggio2.innerHTML = ''
   let  numPc = randomizer(1, 5);
   numUser = parseInt(prompt('inserisci un numero da 1 a 5'));
@@ -82,6 +84,33 @@ pariDisBtn.addEventListener('click', function(){
   }
 
 
+}); */
+
+
+pariDisBtn.addEventListener('click', function(){
+  messaggio2.innerHTML = ''
+  let  numPc = randomizer(1, 5);
+  numUser = parseInt(prompt('inserisci un numero da 1 a 5'));
+  const pariDispari = prompt('scegli "pari" o "dispari"');
+  sommaUserPc = numPc + numUser;
+
+
+  if(isNaN(numUser)){
+    alert('ATTENZIONE! Inserire un numero');
+  }else if( pariDispari !== 'pari' && pariDispari !== 'dispari'){
+    alert('SCRIVI ESATTAMENTE: "pari" o "dispari"!')
+  }else if(numUser < 1 || numUser > 5){
+    alert('ATTENZIONE! Inserire un numero tra 1 e 5')
+  }else if( (pariCheck(sommaUserPc) && pariDispari === 'pari') || (!pariCheck(sommaUserPc) && pariDispari === 'dispari')){
+    printer(messaggio2, 'BRAVO! Hai vinto!')
+    printer(stampNumUser, `Il tuo numero: ${numUser}`);
+    printer(stampPc, `Il numero casuale del pc: ${numPc}`);
+
+  }else{
+    printer(messaggio2, 'OH NO! Hai perso!');
+    printer(stampNumUser, `Il tuo numero: ${numUser}`);
+    printer(stampPc, `Il numero casuale del pc: ${numPc}`);
+  }
 })
 
 
@@ -104,29 +133,19 @@ function pariCheck(somma){
   return false;
 }
 
+/**
+ * Stampa un messaggio all'interno dell'elemento selezionato!
+ * @param {VarDate} where 
+ * @param {string} message 
+ */
+function printer(where, message){
+ return where.innerHTML = message;
+}
 
 
 
 
 
-
-
-/* 
-  if(pariDispari !== 'pari' && pariDispari !== 'dispari'){
-    alert('no no no, devi inserire ESATTAMENTE "pari" o "dispari"')
-  }else if(isNaN(numUSer)){
-    alert('Cosi no eh, ho chiesto un NUMERO')
-  }else if(numUSer < 1 || numUSer > 5){
-    alert('non so cosa non sia chiaro, TRA 1 E 5...')
-  }else if( (!((numPc + numUSer) % 2) && pariDispari === 'pari')){
-      messaggio2.innerHTML = 'FORTUNELLO, hai VINTO!'
-    }else if((numPc + numUSer) % 2 && pariDispari === 'dispari'){
-      messaggio2.innerHTML = 'FORTUNELLO, hai VINTO!'
-    }else{
-      messaggio2.innerHTML = 'AHIA, hai PERSO!'
-    }
-   */
-  
 
 
 
