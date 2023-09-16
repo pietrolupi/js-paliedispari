@@ -54,34 +54,35 @@ function palindrome(parola){
  */
 
 
-
-const numPc = randomizer(1, 5);
-let numUSer = parseInt(prompt('inserisci un numero da 1 a 5'));
-const pariDispari = prompt('scegli "pari" o "dispari"');
-
+let numUser;
+let sommaUserPc;
+const pariDisBtn = document.getElementById('pardis-btn');
 let messaggio2 = document.getElementById('messaggio2')
-const sommaUserPc = numPc + numUSer;
-console.log('numero random ' + numPc)
-pariCheck(sommaUserPc);
 
-  if(pariDispari !== 'pari' && pariDispari !== 'dispari'){
-    alert('no no no, devi inserire ESATTAMENTE "pari" o "dispari"')
-  }else if(isNaN(numUSer)){
-    alert('Cosi no eh, ho chiesto un NUMERO')
-  }else if(numUSer < 1 || numUSer > 5){
-    alert('non so cosa non sia chiaro, TRA 1 E 5...')
-  }else if( (!((numPc + numUSer) % 2) && pariDispari === 'pari')){
-      messaggio2.innerHTML = 'FORTUNELLO, hai VINTO!'
-    }else if((numPc + numUSer) % 2 && pariDispari === 'dispari'){
-      messaggio2.innerHTML = 'FORTUNELLO, hai VINTO!'
-    }else{
-      messaggio2.innerHTML = 'AHIA, hai PERSO!'
-    }
-  
-  
+pariDisBtn.addEventListener('click', function(){
+  messaggio2.innerHTML = ''
+  let  numPc = randomizer(1, 5);
+  numUser = parseInt(prompt('inserisci un numero da 1 a 5'));
+  const pariDispari = prompt('scegli "pari" o "dispari"');
+  sommaUserPc = numPc + numUser;
+
+  if(isNaN(numUser)){
+    alert('ATTENZIONE! Inserire un numero');
+  }else if( pariDispari !== 'pari' && pariDispari !== 'dispari'){
+    alert('SCRIVI ESATTAMENTE: "pari" o "dispari"!')
+  }else if(numUser < 1 || numUser > 5){
+    alert('ATTENZIONE! Inserire un numero tra 1 e 5')
+  }else if( (pariCheck(sommaUserPc) && pariDispari === 'pari') || (!pariCheck(sommaUserPc) && pariDispari === 'dispari')){
+    messaggio2.innerHTML = 'BRAVO! Hai vinto!'
+    console.log('numero random PC ---' + numPc)
+    console.log('somma user e pc ----' + sommaUserPc)
+
+  }else{
+    messaggio2.innerHTML = 'OH NO! Hai perso!'
+  }
 
 
-
+})
 
 
 /**
@@ -96,12 +97,38 @@ function randomizer(min, max){
 
 /**
  * controlla se un numero è pari o dispari
- * @param {number} pari 
+ * @param {number} somma 
  */
-function pariCheck(pari){
-  if (!(pari % 2)){
-    messaggio2 = ''
-  }else{
-    console.log('NUMERO DISPARI')
-  };
+function pariCheck(somma){
+  if (!(somma % 2)) return true;
+  return false;
 }
+
+
+
+
+
+
+
+
+/* 
+  if(pariDispari !== 'pari' && pariDispari !== 'dispari'){
+    alert('no no no, devi inserire ESATTAMENTE "pari" o "dispari"')
+  }else if(isNaN(numUSer)){
+    alert('Cosi no eh, ho chiesto un NUMERO')
+  }else if(numUSer < 1 || numUSer > 5){
+    alert('non so cosa non sia chiaro, TRA 1 E 5...')
+  }else if( (!((numPc + numUSer) % 2) && pariDispari === 'pari')){
+      messaggio2.innerHTML = 'FORTUNELLO, hai VINTO!'
+    }else if((numPc + numUSer) % 2 && pariDispari === 'dispari'){
+      messaggio2.innerHTML = 'FORTUNELLO, hai VINTO!'
+    }else{
+      messaggio2.innerHTML = 'AHIA, hai PERSO!'
+    }
+   */
+  
+
+
+
+
+
