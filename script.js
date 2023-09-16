@@ -10,7 +10,6 @@
  */
 
 
-
 const palBtn = document.getElementById('pal-btn');
 let parolaIns;
 let firstHalfArray = [];
@@ -36,11 +35,11 @@ function palindrome(parola){
   letterArray.splice(0, Math.ceil(letterArray.length / 2) );
 
   if(letterArray.reverse().join('') === firstHalfArray.join('')){
-    messaggio.innerHTML = 'BRAVONE è proprio un palindromo!'
+    printer(messaggio, 'BRAVONE è proprio un palindromo!')
   }else{
-    messaggio.innerHTML = 'OH NO, non è un palindromo :('
+    printer(messaggio, 'OH NO, non è un palindromo :(')
   };
-}
+};
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -60,31 +59,6 @@ const stampNumUser = document.getElementById('stamp-user')
 const stampPc = document.getElementById('stamp-pc')
 const pariDisBtn = document.getElementById('pardis-btn');
 const messaggio2 = document.getElementById('messaggio2')
-
-/* pariDisBtn.addEventListener('click', function(){
-  messaggio2.innerHTML = ''
-  let  numPc = randomizer(1, 5);
-  numUser = parseInt(prompt('inserisci un numero da 1 a 5'));
-  const pariDispari = prompt('scegli "pari" o "dispari"');
-  sommaUserPc = numPc + numUser;
-
-  if(isNaN(numUser)){
-    alert('ATTENZIONE! Inserire un numero');
-  }else if( pariDispari !== 'pari' && pariDispari !== 'dispari'){
-    alert('SCRIVI ESATTAMENTE: "pari" o "dispari"!')
-  }else if(numUser < 1 || numUser > 5){
-    alert('ATTENZIONE! Inserire un numero tra 1 e 5')
-  }else if( (pariCheck(sommaUserPc) && pariDispari === 'pari') || (!pariCheck(sommaUserPc) && pariDispari === 'dispari')){
-    messaggio2.innerHTML = 'BRAVO! Hai vinto!'
-    console.log('numero random PC ---' + numPc)
-    console.log('somma user e pc ----' + sommaUserPc)
-
-  }else{
-    messaggio2.innerHTML = 'OH NO! Hai perso!'
-  }
-
-
-}); */
 
 
 pariDisBtn.addEventListener('click', function(){
